@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import static java.lang.Math.*;
@@ -38,23 +39,16 @@ public class Main {
     }
 
     public void date() {
-        LocalDateTime now = LocalDateTime.now();
-        int hour = now.getHour();
-        int minute = now.getMinute();
-        int second = now.getSecond();
-
-        System.out.printf("Time: %02d:%02d:%02d\n", hour, minute, second);
-    }
-
-    public void inputMain() {
-        inputData();
-        println();
+        LocalDateTime today = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss - 'T'");
+        System.out.println(today.format(formatter));
     }
 
     public static void main(String[] args) {
         Main main = new Main();
         main.date();
         main.println();
-        main.inputMain();
+        main.inputData();
+        main.println();
     }
 }
